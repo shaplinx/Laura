@@ -31,13 +31,13 @@
         <ul id="portfolio-flters" class="d-flex justify-content-center">
           <li data-filter="*" class="filter-active">All</li>
             {loop: $allTags}
-            <li data-filter=".filter-{$value.name} ">{$value.name} </li>
+            <li data-filter=".filter-{?= str_replace(' ','-',$value.name) ?} ">{$value.name} </li>
             {/loop}
         </ul>
         
         <div class="row portfolio-container">
           {loop: $blog.posts}
-          <div class="col-lg-4 col-md-6 portfolio-item {loop: $value.tags as $tag} filter-{$tag.name}{/loop}"</a>
+          <div class="col-lg-4 col-md-6 portfolio-item {loop: $value.tags as $tag} filter-{?= str_replace(' ','-',$tag.name) ?}{/loop}"</a>
             
             {if: $value.cover_photo}
             <div class="portfolio-img"><img src="{$value.cover_url}" alt="{$value.title}" class="img-fluid"></div>
