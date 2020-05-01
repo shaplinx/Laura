@@ -1,0 +1,85 @@
+{template: inc/header.html}
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.jpg')">
+    <div class="hero-container">
+      <h1>{$settings.title}</h1>
+      <h2>{$settings.description}</h2>
+      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="fa fa-angle-down"></i></a>
+    </div>
+  </section><!-- End Hero -->
+
+
+<!-- Main Content -->
+
+<section id="content">
+    <div class="container">
+        <div class="section-title">
+            <span>{$page.title}</span>
+            <h2>{$page.title}</h2>
+            <p>{?= sprintf($lang.blog.posted, $post.author.name, $post.published_at) ?} | {loop: $post.tags}{if: $key != 0}, {/if}<a href="{$value.url}">{$value.name}</a>{/loop}
+</p>
+        </div>
+    </div>
+    <div class="container mb-10">
+        <div class="row">
+          <div class="col-md-12 col-lg-10">
+            {if: $bat.notify}
+                <div id="notify" class="alert alert-{$bat.notify.type}">{$bat.notify.text}</div>
+            {/if}
+          </div>
+        </div>
+        
+        {if: $post.cover_photo}
+        <div class="row-row d-flex d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 text-center">      
+                   <a href="{?= url('blog') ?}">
+                    <img class="align-center" src="{$post.cover_url}" alt="{$post.title}">
+                   </a>
+            </div>
+        </div>
+            {/if}
+    </div>
+    <div class="container" style="padding-top:20px">
+        
+            <div class="row-row d-flex d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10">   
+                   {$post.content}
+                </div>
+             </div>
+                 
+            </div>
+        </div>
+         <div class="post-comments">
+        <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>          
+</section>
+<section id="services" class="services">
+<div class="container">
+    <div class="row-row d-flex d-flex justify-content-center">
+              <div class="col-md-12 col-lg-10 align-items-stretch mb-5 mb-lg-0">
+                <div class="icon-box">
+                  <img width="200px" src="{?= $post.author.avatar ?}" class="rounded-circle image-fluid" />
+                        <h4>{$post.author.name}</h4>
+                  <p class="description"><blockquote>{$post.author.description}</blockquote></p>
+                  <div class="pull-left">
+                        {$lang.blog.share}: 
+                        <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}">
+                            <i class="fa fa-twitter" data-toggle="tooltip" title="" data-original-title="Twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/sharer.php?u={?= urlencode($post.url) ?}">
+                            <i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook"></i>
+                        </a>
+                        <a href="http://plus.google.com/share?url={?= urlencode($post.url) ?}">
+                            <i class="fa fa-google-plus" data-toggle="tooltip" title="" data-original-title="Google-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+              </div>
+    </div>
+</div>
+</section>
+{template: inc/footer.html}

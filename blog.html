@@ -1,0 +1,72 @@
+{template: inc/header.html}
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.jpg')">
+    <div class="hero-container">
+      <h1>{$settings.title}</h1>
+      <h2>{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</h2>
+      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="fa fa-angle-down"></i></a>
+    </div>
+  </section><!-- End Hero -->
+
+<!-- Main Content -->
+<!-- ======= My Portfolio Section ======= -->
+    {if: $bat.notify}
+    <div class="container">
+      <div class="row">
+        <div id="notify" class="alert alert-{$bat.notify.type}">{$bat.notify.text}</div>
+      </div>
+    </div>
+    {/if}           
+    <section id="content" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <span>{$page.title}</span>
+          <h2>{$page.title}</h2>
+          <p>{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-center">
+          <li data-filter="*" class="filter-active">All</li>
+            {loop: $allTags}
+            <li data-filter=".filter-{$value.name} ">{$value.name} </li>
+            {/loop}
+        </ul>
+        
+        <div class="row portfolio-container">
+          {loop: $blog.posts}
+          <div class="col-lg-4 col-md-6 portfolio-item {loop: $value.tags as $tag} filter-{$tag.name}{/loop}"</a>
+            
+            {if: $value.cover_photo}
+            <div class="portfolio-img"><img src="{$value.cover_url}" alt="{$value.title}" class="img-fluid"></div>
+            {else}
+            <div class="portfolio-img"><img src="{$bat.theme}/assets/img/no-image.jpg" alt="{$value.title}" class="img-fluid"></div>
+            {/if}
+            <div class="portfolio-info">
+              <h4>{$value.title}</h4>
+              <p><small>{?= sprintf($lang.blog.posted, $value.author.name, $value.published_at) ?} </small></p>
+              <a href="{$value.url}" class="details-link" title="More Details"><i class="fa fa-link"></i></a>
+            </div>
+            
+          </div>
+          {/loop}
+            </section>
+    <section id="portfolio" class="portfolio">
+           <div class="container">
+          <!-- Pager -->
+            <ul  id="portfolio-flters" class="d-flex justify-content-center" >
+                {if: isset($prev)}
+                <li class="previous">
+                    <a href="{$prev.url}">&larr; {$lang.blog.newer}</a>
+                </li>
+                {/if} {if: isset($next)}
+                <li class="next">
+                    <a href="{$next.url}">{$lang.blog.older} &rarr;</a>
+                </li>
+                {/if}
+            </ul>
+</section>
+  <!-- End My Portfolio Section -->
+{template: inc/footer.html}

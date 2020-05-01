@@ -1,0 +1,36 @@
+{template: inc/header.html}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.jpg')">
+    <div class="hero-container">
+      <h1>{$settings.title}</h1>
+      <h2>{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</h2>
+      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="fa fa-angle-down"></i></a>
+    </div>
+  </section><!-- End Hero -->
+  
+<section id="content">
+    <div class="container">
+        <div class="section-title">
+            <span>{$page.title}</span>
+            <h2>{$page.title}</h2>
+            <p>{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</p>
+        </div>
+    </div>
+    <div class="container mb-10">
+        <div class="row">
+          <div class="col-md-12 col-lg-10">
+            {if: $bat.notify}
+                <div id="notify" class="alert alert-{$bat.notify.type}">{$bat.notify.text}</div>
+            {/if}
+          </div>
+        </div>
+        <div class="row-row d-flex d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10">   
+                {$page.content}
+            </div>
+        </div>
+    </div>			
+        
+</section>
+{template: inc/footer.html}

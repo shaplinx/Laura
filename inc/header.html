@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{$page.title} | {$settings.title}</title>
+  <meta content="{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}" name="descriptison">
+  <meta content="{$settings.keywords}" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{$bat.theme}/assets/img/favicon.png" rel="icon">
+  <link href="{$bat.theme}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{$bat.theme}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{$bat.theme}/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/56fa629212.css">
+  <link href="{$bat.theme}/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="{$bat.theme}/assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{$bat.theme}/assets/css/style.css" rel="stylesheet">
+  {loop: $bat.header}{$value}{/loop}
+
+  <!-- =======================================================
+  * Template Name: Laura - v2.0.0
+  * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top  d-flex justify-content-center align-items-center">
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        {$navigation.main}
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header>
+  <!-- End Header -->
