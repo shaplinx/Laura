@@ -2,11 +2,11 @@
 
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.jpg')">
+  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.webp')">
     <div class="hero-container">
       <h1>{$settings.title}</h1>
       <h2>{$settings.description}</h2>
-      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="fa fa-angle-down"></i></a>
+      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="icofont-curved-down"></i></a>
     </div>
   </section><!-- End Hero -->
 
@@ -35,16 +35,16 @@
         <div class="row-row d-flex d-flex justify-content-center">
             <div class="col-md-12 col-lg-10 text-center">      
                    <a href="{?= url('blog') ?}">
-                    <img class="align-center" src="{$post.cover_url}" alt="{$post.title}">
+                    <img class="align-center img-fluid" max-width="100%" src="{$post.cover_url}" alt="{$post.title}">
                    </a>
             </div>
         </div>
             {/if}
     </div>
-    <div class="container" style="padding-top:20px">
+    <div class="container" style="padding-top:30px">
         
             <div class="row-row d-flex d-flex justify-content-center">
-                <div class="col-md-12 col-lg-10">   
+                <div class="col-md-12 col-lg-10 text-justify">   
                    {$post.content}
                 </div>
              </div>
@@ -64,16 +64,16 @@
                   <img width="200px" src="{?= $post.author.avatar ?}" class="rounded-circle image-fluid" />
                         <h4>{$post.author.name}</h4>
                   <p class="description"><blockquote>{$post.author.description}</blockquote></p>
-                  <div class="pull-left">
+                  <div class="pull-left social-links">
                         {$lang.blog.share}: 
                         <a href="http://twitter.com/home?status={?= urlencode($post.url) ?}">
-                            <i class="fa fa-twitter" data-toggle="tooltip" title="" data-original-title="Twitter"></i>
+                            <i class="icofont-twitter" data-toggle="tooltip" title="" data-original-title="Twitter"></i>
                         </a>
                         <a href="https://www.facebook.com/sharer.php?u={?= urlencode($post.url) ?}">
-                            <i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook"></i>
+                            <i class="icofont-facebook" data-toggle="tooltip" title="" data-original-title="Facebook"></i>
                         </a>
                         <a href="http://plus.google.com/share?url={?= urlencode($post.url) ?}">
-                            <i class="fa fa-google-plus" data-toggle="tooltip" title="" data-original-title="Google-plus"></i>
+                            <i class="icofont-google-plus" data-toggle="tooltip" title="" data-original-title="Google-plus"></i>
                         </a>
                     </div>
                 </div>

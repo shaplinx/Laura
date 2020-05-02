@@ -2,11 +2,11 @@
 
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.jpg')">
+  <section id="hero" style="background-image: url('{$bat.theme}/assets/img/hero-bg.webp')">
     <div class="hero-container">
       <h1>{$settings.title}</h1>
       <h2>{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</h2>
-      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="fa fa-angle-down"></i></a>
+      <a href="#content" class="btn-scroll scrollto" title="Scroll Down"><i class="icofont-curved-down"></i></a>
     </div>
   </section><!-- End Hero -->
 
@@ -28,7 +28,7 @@
           <p>{if: $page.desc}{$page.desc}{else}{$settings.description}{/if}</p>
         </div>
 
-        <ul id="portfolio-flters" class="d-flex justify-content-center">
+        <ul id="portfolio-flters" class="d-flex justify-content-center" style="padding-inline-start: 0px;">
           <li data-filter="*" class="filter-active">All</li>
             {loop: $allTags}
             <li data-filter=".filter-{?= str_replace(' ','-',$value.name) ?} ">{$value.name} </li>
@@ -45,9 +45,12 @@
             <div class="portfolio-img"><img src="{$bat.theme}/assets/img/no-image.jpg" alt="{$value.title}" class="img-fluid"></div>
             {/if}
             <div class="portfolio-info">
-              <h4>{$value.title}</h4>
-              <p><small>{?= sprintf($lang.blog.posted, $value.author.name, $value.published_at) ?} </small></p>
-              <a href="{$value.url}" class="details-link" title="More Details"><i class="fa fa-link"></i></a>
+              <a href="{$value.url}"><h4>{$value.title}</h4></a>
+              <p><small>
+                    <span class="subheading"><a href="{$value.url}" class="text-white">{?= sprintf($lang.blog.posted, $value.author.name, $value.published_at) ?}</a><br/>
+                    <a href="{$value.url}#disqus_thread" data-disqus-identifier="{$value.disqus_identifier}">{$lang.blog.no_comments}</a>
+                    | <i class="icofont-tags"></i> {loop: $value.tags as $tag}{if: $key != 0}, {/if}<a href="{$tag.url}">{$tag.name}</a>{/loop}</small></p>
+              <a href="{$value.url}" class="details-link stretched-link" title="More Details"><i class="icofont-link"></i></a>
             </div>
             
           </div>
@@ -56,7 +59,7 @@
     <section id="portfolio" class="portfolio">
            <div class="container">
           <!-- Pager -->
-            <ul  id="portfolio-flters" class="d-flex justify-content-center" >
+            <ul  id="portfolio-flters" class="d-flex justify-content-center" style="padding-inline-start: 0px;">
                 {if: isset($prev)}
                 <li class="previous">
                     <a href="{$prev.url}">&larr; {$lang.blog.newer}</a>
