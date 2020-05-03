@@ -34,7 +34,7 @@
         {if: $post.cover_photo}
         <div class="row-row d-flex d-flex justify-content-center">
             <div class="col-md-12 col-lg-10 text-center">      
-                   <a href="{?= url('blog') ?}">
+                   <a href="{$post.cover_url}">
                     <img class="align-center img-fluid" max-width="100%" src="{$post.cover_url}" alt="{$post.title}">
                    </a>
             </div>

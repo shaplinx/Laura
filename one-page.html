@@ -10,7 +10,13 @@
   </section><!-- End Hero -->
   
   <main id="main">
-
+  {if: $bat.notify}
+   <section id="notify" class="about">
+      <div class="container">
+        <div id="notify" class="alert alert-{$bat.notify.type}">{$bat.notify.text}</div>
+      </div>
+   </section>
+  {/if}
     <!-- ======= About Me Section ======= -->
     <section id="about" class="about">
       <div class="container">
@@ -425,25 +431,24 @@
             </div>
 
           </div>
-
           <div class="col-lg-6">
-            <form action="{$_SERVER['REQUEST_URI']}" method="post" role="form" class="php-email-form">
+            <form action="{$_SERVER['REQUEST_URI']}404" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="{$lang.contact.full_name}" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="name" class="form-control" id="name" placeholder="{$lang.contact.full_name}" required data-msg="Please enter at least 4 chars" />
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="from" id="from" placeholder="{$lang.contact.email}" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="from" id="from" placeholder="{$lang.contact.email}" required data-msg="Please enter a valid email" />
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="{$lang.contact.subject}" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="{$lang.contact.subject}" required data-msg="Please enter at least 8 chars of subject" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="6" data-rule="required" data-msg="{$lang.contact.message}" placeholder="Message"></textarea>
+                <textarea class="form-control" name="message" rows="6" data-rule="required" data-msg="{$lang.contact.message}" placeholder="Message" requiredvali></textarea>
                 <div class="validate"></div>
               </div>
               {if: $checkbox.switch > 0}
@@ -466,12 +471,7 @@
                     })();
                 </script>
              <!-- /antispam field -->
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">{$lang.contact.send}</button></div>
+              <div class="text-center"><button name="send-email" type="submit">{$lang.contact.send}</button></div>
             </form>
           </div>
 
