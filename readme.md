@@ -9,7 +9,7 @@ Go to setting --> themes, and then edit one-page.html to your liking. It is reco
 
 To make contact form working, just create new form page with slug "contact".
 
-##license
+## license
 Based on Bootstrapmade Templtate - Laura
 https://bootstrapmade.com/demo/themes/Laura/
 
