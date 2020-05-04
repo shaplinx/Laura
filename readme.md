@@ -1,5 +1,5 @@
 # Laura
-One Page Bootstrap 4 Bat Flat CMS Themes
+Laura is a clean and responsive one page portfolio theme
 ![](800.png)
 
 ## How To Use
